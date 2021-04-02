@@ -13,31 +13,40 @@ import com.Bankids.Models.ClienteLogado;
 
 @Controller
 public class LoginController {
-	ArrayList<Cliente> clientes = Cliente.criarClienteMockados();
+	static boolean inicializado = false;
 	
 	@RequestMapping("/login")
 	public String index() {
+		if(inicializado == false) {
+			inicializado = true;
+			Cliente.criarClientesMockados();
+		}
 		return "loginView";
 	}
 
 	@PostMapping("/login/verificar")
-	public String index(WebRequest request) {
+	public String loginSubmit(WebRequest request) {
 		String cpf = request.getParameter("cpf");
 		String senha = request.getParameter("senha");
 		Cliente cliente = verificarDados(cpf, senha);
 		if(cliente != null) {
 			//Instância singleton de ClienteLogado
 			new ClienteLogado(cliente);
-			System.out.println(ClienteLogado.singleton().getNomeCompleto());
-			//return "redirect:/saldo"
+			return "redirect:/saldo";
 		} //else {
 		//mensagem de feedback ao usuário, cliente não encontrado.
 		return "redirect:/login";
 		// }
 	}
 	
+	@PostMapping("/login/cadastro")
+	public String goToCadastro() {
+		return "redirect:/cadastro";
+	}
+	
 	public Cliente verificarDados(String cpf, String senha) {
-		 for(Cliente cliente : clientes) {
+		ArrayList<Cliente> clientes = Cliente.clientesMockados; 
+		for(Cliente cliente : clientes) {
 			 if (cliente.getCpf().equals(cpf) && cliente.getSenha().equals(senha)) {
 				 return cliente;	
 			 }	        

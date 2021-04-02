@@ -14,4 +14,5 @@ public class ClienteLogado extends Cliente {
 		return clienteLogado;
 	}
 	
+	
 }

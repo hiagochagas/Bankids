@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+	<body>
+		<h1>Saldo</h1>
+		<h2>Bem vindo</h2>
+			<p th:text="${nomeCliente}">
+		<h2>Seu saldo:</h2>
+			<p th:text="${saldoCliente}">
+		<h2>Gastos desse mês:</h2>
+			<p th:text="${gastosCliente}">
+		<form action="/transferencia">
+			<button type="submit">Transferência</button>
+		</form>
+		
+		<form action="/login">
+			<button type="submit">Sair</button>
+		</form>
+	</body>
+</html>

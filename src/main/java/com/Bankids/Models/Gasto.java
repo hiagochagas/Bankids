@@ -7,6 +7,12 @@ public class Gasto {
 	private double valor;
 	private String descricao;
 	
+	public Gasto(UUID id, double valor, String descricao) {
+		this.id = id;
+		this.valor = valor;
+		this.descricao = descricao;
+	}
+	
 	public UUID getId() {
 		return id;
 	}

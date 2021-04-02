@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Cliente {
 	
+	public static ArrayList<Cliente> clientesMockados = new ArrayList<Cliente>();
+	
 	private String nomeCompleto;
 	private int idade;
 	private String rg;
@@ -79,14 +81,26 @@ public class Cliente {
 		this.gastos = gastos;
 	}
 	
-	public static ArrayList<Cliente> criarClienteMockados() {
-		ArrayList<Gasto> gastos = new ArrayList<Gasto>();
-		ArrayList<Cliente> clientes = new ArrayList<Cliente>();
-		clientes.add(new Cliente("Hiago", 21, "12133", "123123", "07070", "123", 123.0, gastos));
-		clientes.add(new Cliente("Rafael", 20, "45634", "98778", "49498", "456", 256.0, gastos));
-		clientes.add(new Cliente("William", 20, "23643", "23578", "34678", "789", 0.0, gastos));
-		clientes.add(new Cliente("Eduardo", 20, "23578", "98607", "75327", "234", 10.0, gastos));
-		return clientes;
+	public void removerDoSaldo(Double valorGasto) {
+		this.saldo -= valorGasto;
 	}
+	
+	public void adicionarGasto(Gasto gasto) {
+		this.gastos.add(gasto);
+	}
+	
+	public void adicionarAoSaldo(Double valorGasto) {
+		this.saldo += valorGasto;
+	}
+	
+	public static void criarClientesMockados() {
+		ArrayList<Gasto> gastos = new ArrayList<Gasto>();
+		clientesMockados.add(new Cliente("Hiago", 21, "12133", "123123", "07070", "123", 123.0, gastos));
+		clientesMockados.add(new Cliente("Rafael", 20, "45634", "98778", "49498", "456", 256.0, gastos));
+		clientesMockados.add(new Cliente("William", 20, "23643", "23578", "34678", "789", 0.0, gastos));
+		clientesMockados.add(new Cliente("Eduardo", 20, "23578", "98607", "75327", "234", 10.0, gastos));
+	}
+
+	
 	
 }

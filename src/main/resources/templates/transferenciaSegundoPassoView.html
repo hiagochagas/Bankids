@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+	<body>
+		<form action="/transferencia/confirmarTransferencia" method="post">
+			<h2>Nome completo do beneficiário</h2>
+			<p th:text= "${nome}"></p> 
+			<h2>CPF do beneficiário</h2>
+			<p th:text= "${cpf}"></p> 			
+			<h2>Valor</h2>
+			<p th:text= "${valor}"></p>
+			<h2>Senha</h2>
+			<input type="password" name="senha"> 
+			<h2>Confirmar senha</h2>
+			<input type="password" name="confirmarSenha"> 
+			<button type="submit">Confirmar</button>
+		</form>
+		
+		<form action="/transferencia">
+			<button type="submit">Voltar</button>
+		</form>
+	</body>
+</html>
