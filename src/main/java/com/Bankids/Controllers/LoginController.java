@@ -17,10 +17,7 @@ public class LoginController {
 	
 	@RequestMapping("/login")
 	public String index() {
-		if(inicializado == false) {
-			inicializado = true;
-			Cliente.criarClientesMockados();
-		}
+		
 		return "loginView";
 	}
 

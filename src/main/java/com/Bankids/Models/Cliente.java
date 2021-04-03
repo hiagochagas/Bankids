@@ -80,11 +80,13 @@ public class Cliente {
 		this.saldo = saldo;
 		this.gastos = gastos;
 	}
-	
-	public void removerDoSaldo(Double valorGasto) {
-		this.saldo -= valorGasto;
+
+	public Cliente() {
+		//nothing happens in here
+		//esse construtor vazio é utilizado por conta da herança de ClienteLogado
+		//para podermos passar a referência de um cliente, é necessário utilizar esse construtor
 	}
-	
+
 	public void adicionarGasto(Gasto gasto) {
 		this.gastos.add(gasto);
 	}
@@ -93,14 +95,22 @@ public class Cliente {
 		this.saldo += valorGasto;
 	}
 	
+	public void removerDoSaldo(Double valorGasto) {
+		this.saldo -= valorGasto;
+	}
+	
 	public static void criarClientesMockados() {
-		ArrayList<Gasto> gastos = new ArrayList<Gasto>();
-		clientesMockados.add(new Cliente("Hiago", 21, "12133", "123123", "07070", "123", 123.0, gastos));
-		clientesMockados.add(new Cliente("Rafael", 20, "45634", "98778", "49498", "456", 256.0, gastos));
-		clientesMockados.add(new Cliente("William", 20, "23643", "23578", "34678", "789", 0.0, gastos));
-		clientesMockados.add(new Cliente("Eduardo", 20, "23578", "98607", "75327", "234", 10.0, gastos));
+		clientesMockados.add(new Cliente("Hiago", 21, "12133", "123123", "07070", "123", 123.0, new ArrayList<Gasto>()));
+		clientesMockados.add(new Cliente("Rafael", 20, "45634", "98778", "49498", "456", 256.0, new ArrayList<Gasto>()));
+		clientesMockados.add(new Cliente("William", 20, "23643", "23578", "34678", "789", 0.0, new ArrayList<Gasto>()));
+		clientesMockados.add(new Cliente("Eduardo", 20, "23578", "98607", "75327", "234", 10.0, new ArrayList<Gasto>()));
 	}
 
+	@Override
+	public String toString() {
+		return "Nome Completo: " + this.nomeCompleto + "\nIdade: " + this.idade + "\nRG: " + this.rg + "\nCPF do Responsável: " + this.cpfResponsavel + "\nCPF:" + this.cpf + "\nSaldo:" + this.saldo;
+		
+	}
 	
 	
 }

@@ -1,0 +1,10 @@
+<html xmlns:th = "http://www.thymeleaf.org">
+	<body>
+		<ul>
+			<li th:each="gasto: ${gastos}">
+				<span th:text="${gasto.descricao}">Default</span>
+				<span th:text="${gasto.valor}">Default value</span>
+			</li>
+		</ul>
+	</body>
+</html>

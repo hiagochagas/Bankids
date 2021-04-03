@@ -49,26 +49,28 @@ public class TransferenciaController {
 		String senha = request.getParameter("senha");
 		String confirmarSenha = request.getParameter("confirmarSenha");
 		if(senha.equals(confirmarSenha)) {
-			transferirDeClienteLogadoPara(clienteDestino, valor);
+			transferirDeClienteLogadoPara();
 			return "redirect:/transferencia";
 		}
 		return "redirect:/transferencia/segundaParte";
 	}
 	
-	public void transferirDeClienteLogadoPara(Cliente cliente, String valor) {
-		ClienteLogado clienteLogado = ClienteLogado.singleton();
+	public void transferirDeClienteLogadoPara() {
+		Cliente clienteLogado = ClienteLogado.singleton();
 		Double valorGasto = Double.parseDouble(valor);
 		if(valorGasto <= clienteLogado.getSaldo()) {
 			clienteLogado.removerDoSaldo(valorGasto);
-			Gasto gasto = new Gasto(UUID.randomUUID(), valorGasto, "Transferencia para "+ cliente.getNomeCompleto());
+			Gasto gasto = new Gasto(UUID.randomUUID(), valorGasto*(-1), "Transferência para "+ clienteDestino.getNomeCompleto());
 			clienteLogado.adicionarGasto(gasto);
-			cliente.adicionarAoSaldo(valorGasto);
+			
+			clienteDestino.adicionarAoSaldo(valorGasto);
+			Gasto deposito = new Gasto(UUID.randomUUID(), valorGasto, "Depósito recebido de "+ clienteLogado.getNomeCompleto());
+			clienteDestino.adicionarGasto(deposito);
 		}
 	}
 	public Cliente verificarDados(String cpf) {
 		ArrayList<Cliente> clientes = Cliente.clientesMockados; 
 		for(Cliente cliente : clientes) {
-			System.out.println(cliente.getCpf()); 
 			if (cliente.getCpf().equals(cpf)) {
 				 return cliente;	
 			 }	        
