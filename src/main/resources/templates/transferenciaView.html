@@ -1,16 +1,44 @@
 <html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="icon" href="bankidsMiniLogo.png">
+	
+		<title>Bankids</title>
+	
+		<!-- Bootstrap core CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	
+		<!-- Custom styles for this template -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	  </head>
 	<body>
 		<h1>Transferência</h1>
 		<form action="/transferencia/verificaCPF" method="post">
-			<h2>CPF do beneficiário</h2>
-			<input type="text" name="cpf"> 			
-			<h2>Valor</h2>
-			<input type="text" name="valor"> 
-			<button type="submit">Confirmar</button>
+			<label class="sr-only">CPF do Beneficiario</label> </label>
+			<input type="text" name="cpf" class="form-control" placeholder="CPF do Beneficiario" required autofocus>
+			<label class="sr-only">Valor</label> </label>
+			<input type="text" name="valor" class="form-control" placeholder="Valor" required autofocus>			
+			
+			<button class="btn btn-lg btn-primary btn-block" type="submit" onclick="">Confirmar</button>
 		</form>
 		
 		<form action="/saldo">
-			<button type="submit">Saldo</button>
+			<button class="btn btn-lg btn-primary btn-block" type="submit" onclick="">Saldo</button>
 		</form>
+		
+		<form action="/extrato">
+			<button class="btn btn-lg btn-primary btn-block" type="submit" onclick="">Extrato</button>
+		</form>
+		
+		<form action="/dicas">
+			<button class="btn btn-lg btn-primary btn-block" type="submit" onclick="">Dicas Financeiras</button>
+		</form>
+		
+		
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 	</body>
 </html>

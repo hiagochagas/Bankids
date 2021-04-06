@@ -3,8 +3,21 @@
 		<ul>
 			<li th:each="dica: ${dicas}">
 				<span th:text="${dica.cabecalho}">Default</span><br>
-				<span th:text="${dica.descricao}">Default</span>
+				<span th:text="${dica.descricao}">Default</span><br><br>
 			</li>
 		</ul>
+		<form action="/saldo">
+			<button type="submit">Saldo</button>
+		</form>
+		<form action="/transferencia">
+			<button type="submit">Transferência</button>
+		</form>
+		<form action="/extrato">
+			<button type="submit">Extrato</button>
+		</form>
+		
+		<form action="/login">
+			<button type="submit">Sair</button>
+		</form>
 	</body>
 </html>

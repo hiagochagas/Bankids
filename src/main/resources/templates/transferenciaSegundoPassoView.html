@@ -1,22 +1,38 @@
 <!DOCTYPE html>
 <html xmlns:th = "http://www.thymeleaf.org">
-	<body>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" href="bankidsMiniLogo.png">
+
+	<title>Bankids</title>
+
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Custom styles for this template -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  </head>
+  <body class="text-center" >
+	  <h4>Transferência</h4>
 		<form action="/transferencia/confirmarTransferencia" method="post">
-			<h2>Nome completo do beneficiário</h2>
-			<p th:text= "${nome}"></p> 
-			<h2>CPF do beneficiário</h2>
-			<p th:text= "${cpf}"></p> 			
-			<h2>Valor</h2>
-			<p th:text= "${valor}"></p>
-			<h2>Senha</h2>
-			<input type="password" name="senha"> 
-			<h2>Confirmar senha</h2>
-			<input type="password" name="confirmarSenha"> 
-			<button type="submit">Confirmar</button>
+			Nome Completo do Beneficiário
+			<span th:text= "${nome}" class="form-control" autofocus disabled> </span>
+			CPF
+			<span th:text= "${cpf}" class="form-control" autofocus disabled> </span>	
+			Valor			
+			<span th:text= "${valor}" class="form-control" autofocus disabled> </span>
+			<input type="password" name="senha" class="form-control" placeholder="Senha" required autofocus>
+			<input type="password" name="confirmarSenha" class="form-control" placeholder="Confirmar senha" required autofocus> 
+			<button class="btn btn-lg btn-primary btn-block" type="submit" onclick="">Confirmar</button>
 		</form>
 		
 		<form action="/transferencia">
-			<button type="submit">Voltar</button>
+			<button class="btn btn-lg btn-primary btn-block" type="submit" onclick="">Voltar</button>
 		</form>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 	</body>
 </html>
